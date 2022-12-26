@@ -75,6 +75,7 @@
 
       html(attrs, state) {
         const { siteSettings } = this;
+        console.log("🚀 ~ file: header.html:78 ~ html ~ this", this)
         const panelContents = [];
 
         panelContents.push(this.attach('brand-header-icon', { brandMenuVisible: state.brandMenuVisible }));
