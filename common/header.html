@@ -13,7 +13,7 @@
 
       return [h('ul.nav.nav-pills', links.map(l => {
         console.log("🚀 ~ file: header.html:15 ~ html ~ l", l);
-        return h('li', h('i.'+l.attrs.icon), {...l});
+        return h('li.'+l.attrs.icon, {}, {...l});
       }))];
     }
   });
