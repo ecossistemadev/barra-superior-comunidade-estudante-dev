@@ -30,8 +30,8 @@
 
       results.push(this.attach('brand-logo'));
       results.push(h('hr'));
-      results.push(this.attach('menu-links', { contents: () => generalLinksLeft() }));
-      results.push(this.attach('menu-links', { contents: () => generalLinksRight() }));
+      results.push(this.attach('menu-links', { contents: () => generalLinksLeft }));
+      results.push(this.attach('menu-links', { contents: () => generalLinksRight }));
       results.push(this.attach('nav-icons', { contents: () => iconLinks }));
 
       return results;
@@ -80,7 +80,7 @@
         panelContents.push(this.attach('brand-header-icon', { brandMenuVisible: state.brandMenuVisible }));
 
         if (state.brandMenuVisible) {
-          panelContents.push(this.attach('hamburger-brand-menu', { generalLinksLeft: this.generalLinksLeft, generalLinksRight: this.generalLinksRight, iconLinks: this.iconLinks() }));
+          panelContents.push(this.attach('hamburger-brand-menu', { generalLinksLeft: this.generalLinksLeft(), generalLinksRight: this.generalLinksRight(), iconLinks: this.iconLinks() }));
         }
 
         return panelContents;
