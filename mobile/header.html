@@ -1,4 +1,4 @@
-<script type="text/discourse-plugin" version="0.8">
+<script>
   const { h } = require('virtual-dom');
   const { later } = require('@ember/runloop');
 
@@ -11,12 +11,12 @@
 
     html(attrs) {
       const hamburger = this.attach('header-dropdown', {
-                              title: 'hamburger_brand_menu',
-                              icon: 'bars',
-                              iconId: 'toggle-hamburger-brand-menu',
-                              active: attrs.brandMenuVisible,
-                              action: 'toggleBrandMenu'
-                            });
+        title: 'hamburger_brand_menu',
+        icon: 'bars',
+        iconId: 'toggle-hamburger-brand-menu',
+        active: attrs.brandMenuVisible,
+        action: 'toggleBrandMenu'
+      });
       const icons = [hamburger];
       return icons;
     },
@@ -30,7 +30,7 @@
 
       results.push(this.attach('brand-logo'));
       results.push(h('hr'));
-      results.push(this.attach('menu-links', { contents: () => generalLinksLeft }));
+      results.push(this.attach('menu-links', { contents: () => generalLinksLeft() }));
       results.push(this.attach('menu-links', { contents: () => generalLinksRight() }));
       results.push(this.attach('nav-icons', { contents: () => iconLinks }));
 
@@ -38,7 +38,7 @@
     },
 
     html(attrs) {
-      return this.attach('menu-panel', { contents: () => this.panelContents(attrs.generalLinksLeft, attrs.generalLinksRight, , attrs.iconLinks) });
+      return this.attach('menu-panel', { contents: () => this.panelContents(attrs.generalLinksLeft, attrs.generalLinksRight, attrs.iconLinks) });
     },
 
     clickOutside(e) {
@@ -56,7 +56,7 @@
   if (!settings.show_bar_on_mobile) {
     api.reopenWidget('brand-header', {
       defaultState() {
-        let states =  {
+        let states = {
           brandMenuVisible: false
         };
 
@@ -80,7 +80,7 @@
         panelContents.push(this.attach('brand-header-icon', { brandMenuVisible: state.brandMenuVisible }));
 
         if (state.brandMenuVisible) {
-          panelContents.push(this.attach('hamburger-brand-menu', { generalLinksLeft: this.generalLinksLeft(),generalLinksRight: this.generalLinksRight(), iconLinks: this.iconLinks() }));
+          panelContents.push(this.attach('hamburger-brand-menu', { generalLinksLeft: this.generalLinksLeft(), generalLinksRight: this.generalLinksRight(), iconLinks: this.iconLinks() }));
         }
 
         return panelContents;
