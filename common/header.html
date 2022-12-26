@@ -1,4 +1,4 @@
-<script type="text/discourse-plugin" version="0.8">
+<script>
 
   const { h } = require('virtual-dom');
   const { applyDecorators } = require('discourse/widgets/widget');
@@ -114,7 +114,7 @@
       const panelContents = [];
 
       contents.push(this.attach('nav-links', { contents: () => this.generalLinksLeft() }));
-      panelContents.push(this.attach('nav-icons', { contents: () => this.generalLinksRight() }));
+      panelContents.push(this.attach('nav-links', { contents: () => this.generalLinksRight() }));
       panelContents.push(this.attach('nav-icons', { contents: () => this.iconLinks() }));
 
       contents.push(this.attach('brand-header-right', { contents: () => panelContents }));
