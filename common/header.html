@@ -11,8 +11,10 @@
     html(attrs) {
       const links = [].concat(attrs.contents());
 
-      return [h('ul.nav.nav-pills', links.map(l => { console.log("🚀 ~ file: header.html:15 ~ html ~ l", l); return [h('li', {}, l )}] )) ];
-      
+      return [h('ul.nav.nav-pills', links.map(l => {
+        console.log("🚀 ~ file: header.html:15 ~ html ~ l", l);
+        return [h('li', {}, l)]
+      }))];
     }
   });
 
@@ -44,15 +46,15 @@
       if (links) {
         return links.split("|").map(l => {
           const values = l.split(",");
-            return this.attach('link', {
-              rawLabel: values[0].trim(),
-              icon: values[1].trim(),
-              href: values[2].trim(),
-              omitSpan: true,
-              attributes: {
-                target: (values[4] || '').trim()
-              }
-            });
+          return this.attach('link', {
+            rawLabel: values[0].trim(),
+            icon: values[1].trim(),
+            href: values[2].trim(),
+            omitSpan: true,
+            attributes: {
+              target: (values[4] || '').trim()
+            }
+          });
         });
       } else {
         return [];
@@ -65,15 +67,15 @@
       if (links) {
         return links.split("|").map(l => {
           const values = l.split(",");
-            return this.attach('link', {
-              rawLabel: values[0].trim(),
-              icon: values[1].trim(),
-              href: values[2].trim(),
-              omitSpan: true,
-              attributes: {
-                target: (values[4] || '').trim()
-              }
-            });
+          return this.attach('link', {
+            rawLabel: values[0].trim(),
+            icon: values[1].trim(),
+            href: values[2].trim(),
+            omitSpan: true,
+            attributes: {
+              target: (values[4] || '').trim()
+            }
+          });
         });
       } else {
         return [];
