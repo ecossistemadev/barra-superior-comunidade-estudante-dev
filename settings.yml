@@ -6,12 +6,17 @@ logo_url:
   default: ""
 mobile_logo_url:
   default: ""
-links:
+links_left:
   type: list
   list_type: simple
   default: ""
-  description: "Format: name, icon, url, left or right, target(optional)"
-icons:
+  description: "Format: name, icon-name, url, target(optional)"
+links_right:
+  type: list
+  list_type: simple
+  default: ""
+  description: "Format: name, icon-name, url, target(optional)"
+icons_right:
   type: list
   list_type: simple
   default: ""

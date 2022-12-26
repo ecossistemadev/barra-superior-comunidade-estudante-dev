@@ -38,12 +38,11 @@
     buildKey: () => `header`,
 
     generalLinksLeft() {
-      const links = settings.links;
+      const links = settings.links_left;
 
       if (links) {
         return links.split("|").map(l => {
           const values = l.split(",");
-          if (values[3].trim() === "left") {
             return this.attach('link', {
               rawLabel: values[0].trim(),
               icon: values[1].trim(),
@@ -53,7 +52,6 @@
                 target: (values[4] || '').trim()
               }
             });
-          }
         });
       } else {
         return [];
@@ -61,12 +59,11 @@
     },
 
     generalLinksRight() {
-      const links = settings.links;
+      const links = settings.links_right;
 
       if (links) {
         return links.split("|").map(l => {
           const values = l.split(",");
-          if (values[3].trim() === "right") {
             return this.attach('link', {
               rawLabel: values[0].trim(),
               icon: values[1].trim(),
@@ -76,7 +73,6 @@
                 target: (values[4] || '').trim()
               }
             });
-          }
         });
       } else {
         return [];
