@@ -14,7 +14,7 @@
       return [h('ul.nav.nav-pills', links.map(l => {
         let json = l;
         console.log("🚀 ~ file: header.html:15 ~ html ~ l", l)
-        console.log("🚀 ~", json?.vnode?.children?.[0]?.tagName)
+        console.log("🚀 ~", json?.vnode?.children)
         if(json?.vnode?.children?.[0]?.tagName == 'svg'){
           console.log("🚀 Alterando", l)
           json.vnode.children[0].tagName = 'i';
