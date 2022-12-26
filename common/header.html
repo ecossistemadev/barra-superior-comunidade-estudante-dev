@@ -14,6 +14,7 @@
       return [h('ul.nav.nav-pills', links.map(l => {
         console.log("🚀 ~ file: header.html:15 ~ html ~ l", l)
         if(l?.vnode?.children?.[0]?.tagName == 'svg'){
+          console.log("🚀 Alterando", l)
           l.vnode.children[0].tagName = 'i';
           l.vnode.children[0].properties.attributes.class = l.attrs.icon;
         }
