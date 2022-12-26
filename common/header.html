@@ -12,7 +12,7 @@
       const links = [].concat(attrs.contents());
 
       return [h('ul.nav.nav-pills', links.map(l => {
-        let json = JSON.parse(l);
+        let json = JSON.parse(JSON.stringify(l));
         console.log("🚀 ~ file: header.html:15 ~ html ~ l", l)
         console.log("🚀 ~ file: header.html:15 ~ html ~ json", json)
         console.log("🚀 ~ c", json?.vnode?.children)
