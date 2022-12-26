@@ -25,19 +25,20 @@
   api.createWidget('hamburger-brand-menu', {
     tagName: 'div.hamburger-panel',
 
-    panelContents(generalLinks, iconLinks) {
+    panelContents(generalLinksLeft, generalLinksRight, iconLinks) {
       const results = [];
 
       results.push(this.attach('brand-logo'));
       results.push(h('hr'));
-      results.push(this.attach('menu-links', { contents: () => generalLinks }));
+      results.push(this.attach('menu-links', { contents: () => generalLinksLeft }));
+      results.push(this.attach('menu-links', { contents: () => generalLinksRight() }));
       results.push(this.attach('nav-icons', { contents: () => iconLinks }));
 
       return results;
     },
 
     html(attrs) {
-      return this.attach('menu-panel', { contents: () => this.panelContents(attrs.generalLinks, attrs.iconLinks) });
+      return this.attach('menu-panel', { contents: () => this.panelContents(attrs.generalLinksLeft, attrs.generalLinksRight, , attrs.iconLinks) });
     },
 
     clickOutside(e) {
@@ -79,7 +80,7 @@
         panelContents.push(this.attach('brand-header-icon', { brandMenuVisible: state.brandMenuVisible }));
 
         if (state.brandMenuVisible) {
-          panelContents.push(this.attach('hamburger-brand-menu', { generalLinks: this.generalLinks(), iconLinks: this.iconLinks() }));
+          panelContents.push(this.attach('hamburger-brand-menu', { generalLinksLeft: this.generalLinksLeft(),generalLinksRight: this.generalLinksRight(), iconLinks: this.iconLinks() }));
         }
 
         return panelContents;
