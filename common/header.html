@@ -12,15 +12,16 @@
       const links = [].concat(attrs.contents());
 
       return [h('ul.nav.nav-pills', links.map(l => {
+        let json = l;
         console.log("🚀 ~ file: header.html:15 ~ html ~ l", l)
-        console.log("🚀 ~ file: header.html:17 ~ html ~ l?.vnode?.children?.[0]?.tagName", l?.vnode?.children?.[0]?.tagName)
-        if(l?.vnode?.children?.[0]?.tagName == 'svg'){
+        console.log("🚀 ~", json?.vnode?.children?.[0]?.tagName)
+        if(json?.vnode?.children?.[0]?.tagName == 'svg'){
           console.log("🚀 Alterando", l)
-          l.vnode.children[0].tagName = 'i';
-          l.vnode.children[0].properties.attributes.class = l.attrs.icon;
+          json.vnode.children[0].tagName = 'i';
+          json.vnode.children[0].properties.attributes.class = json.attrs.icon;
         }
-        console.log("🚀 ~ file: header.html:20 ~ html ~ l", l)
-        return h('li', {}, l); 
+        console.log("🚀 ~ file: header.html:20 ~ html ~ l", json)
+        return h('li', {}, json); 
       }))];
     }
   });
@@ -53,7 +54,7 @@
       if (links) {
         return links.split("|").map(l => {
           const values = l.split(",");
-          return this.attach('link.'+values[1].trim(), {
+          return this.attach('link', {
             rawLabel: values[0].trim(),
             icon: values[1].trim(),
             href: values[2].trim(),
@@ -74,7 +75,7 @@
       if (links) {
         return links.split("|").map(l => {
           const values = l.split(",");
-          return this.attach('link.'+values[1].trim(), {
+          return this.attach('link', {
             rawLabel: values[0].trim(),
             icon: values[1].trim(),
             href: values[2].trim(),
