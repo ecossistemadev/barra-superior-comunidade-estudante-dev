@@ -13,6 +13,7 @@
 
       return [h('ul.nav.nav-pills', links.map(l => {
         console.log("🚀 ~ file: header.html:15 ~ html ~ l", l)
+        console.log("🚀 ~ file: header.html:17 ~ html ~ l?.vnode?.children?.[0]?.tagName", l?.vnode?.children?.[0]?.tagName)
         if(l?.vnode?.children?.[0]?.tagName == 'svg'){
           console.log("🚀 Alterando", l)
           l.vnode.children[0].tagName = 'i';
